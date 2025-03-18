@@ -4,6 +4,7 @@ import 'package:mob/Const/color.dart';
 
 import 'package:mob/screen/home/home.dart';
 import 'package:mob/screen/profile/profile.dart';
+import 'package:mob/screen/schedule/schedule.dart';
 
 class Index extends StatefulWidget {
   final int? index;
@@ -106,7 +107,7 @@ class _IndexState extends State<Index> {
       case 0:
         return const Home();
       case 1:
-        return const SizedBox();
+        return const Schedule();
       case 2:
         return const SizedBox();
       case 3:

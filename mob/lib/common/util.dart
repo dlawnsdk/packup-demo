@@ -1,4 +1,5 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:intl/intl.dart';
 import 'package:logger/logger.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -35,6 +36,21 @@ Future<void> deleteToken(String key) async {
   return await storage.delete(key: key);
 }
 
+/// ################### DATE ################### ///
+
+DateTime getToday() {
+
+  // 오늘 날짜
+  DateTime nowDate = DateTime.utc(
+    DateTime.now().year,
+    DateTime.now().month,
+    DateTime.now().day,
+  );
+
+  String formattedNowDate = DateFormat("yyyy-MM-dd HH:mm:ss").format(nowDate);
+  return nowDate;
+}
+
 /// ################### LOGGER ################### ///
 
 logger(String message, [String type = "TRACE"]) {
@@ -43,12 +59,16 @@ logger(String message, [String type = "TRACE"]) {
   switch(type) {
     case "TRACE" :
       logger.t('$type $message');
+      break;
     case "DEBUG" :
       logger.d('$type $message');
+      break;
     case "INFO" :
       logger.i('$type $message');
+      break;
     case "ERROR" :
       logger.e('$type $message');
+      break;
   }
 }
 
