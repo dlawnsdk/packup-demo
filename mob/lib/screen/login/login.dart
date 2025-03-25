@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_signin_button/button_list.dart';
+import 'package:flutter_signin_button/button_view.dart';
 import 'package:go_router/go_router.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:mob/screen/login/login_view_model.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -76,7 +79,12 @@ class _LoginState extends State<Login> {
                   ),
                 ),
                 SizedBox(height: MediaQuery.of(context).size.width * 0.02),
-
+                SignInButton(
+                  Buttons.Google,
+                  text: "Google로 로그인",
+                  onPressed: googleLogin,
+                ),
+                SizedBox(height: MediaQuery.of(context).size.width * 0.02),
                 // 회원가입 버튼
                 ElevatedButton(
                   onPressed: () {
@@ -119,6 +127,27 @@ class _LoginState extends State<Login> {
         //   _userPasswordErrorText = AppLocalizations.of(context)!.invalid_credentials;
         // });
       }
+    }
+  }
+
+  final GoogleSignIn _googleSignIn = GoogleSignIn(
+    scopes: ['email'],
+  );
+
+  Future<void> googleLogin() async {
+    try {
+      final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
+      if (googleUser == null) {
+        print("로그인 취소");
+        return;
+      }
+
+      final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+      print("ID Token: ${googleAuth.idToken}");
+
+
+    } catch (error) {
+      print("Google 로그인 에러: $error");
     }
   }
 
