@@ -4,11 +4,15 @@ import 'package:flutter_signin_button/button_view.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:mob/screen/login/login_view_model.dart';
+import 'package:mob/service/login/google_login_service.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:mob/const/color.dart';
 import 'package:mob/common/util.dart';
+
+import '../../component/social_login_btn.dart';
+import '../../service/login/kakao_login_service.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -50,6 +54,14 @@ class _LoginState extends State<Login> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                SocialLoginButton(
+                  type: SocialLoginType.kakao,
+                  onPressed: () => handleKakaoLogin(viewModel),
+                ),
+                SocialLoginButton(
+                  type: SocialLoginType.google,
+                  onPressed: () => handleGoogleLogin(viewModel),
+                ),
                 // 아이디 입력 필드
                 // TextField(
                 //   controller: _userIdController,
@@ -84,13 +96,6 @@ class _LoginState extends State<Login> {
                 //   ),
                 // ),
                 SizedBox(height: MediaQuery.of(context).size.width * 0.02),
-                Center(
-                  child: SignInButton(
-                    Buttons.Google,
-                    text: "Google로 로그인",
-                    onPressed: googleLogin,
-                  ),
-                ),
                 // SizedBox(height: MediaQuery.of(context).size.width * 0.02),
                 // 회원가입 버튼
                 // ElevatedButton(
@@ -137,25 +142,16 @@ class _LoginState extends State<Login> {
     }
   }
 
-  final GoogleSignIn _googleSignIn = GoogleSignIn(
-    scopes: ['email'],
-  );
+  Future<void> handleSocialLogin(SocialLoginType type, UserViewModel viewModel) async {
+    await viewModel.checkLogin(type);
+  }
 
-  Future<void> googleLogin() async {
-    try {
-      final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
-      if (googleUser == null) {
-        print("로그인 취소");
-        return;
-      }
+  Future<void> handleKakaoLogin(UserViewModel viewModel) async {
+    await handleSocialLogin(SocialLoginType.kakao, viewModel);
+  }
 
-      final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
-      print("ID Token: ${googleAuth.idToken}");
-
-
-    } catch (error) {
-      print("Google 로그인 에러: $error");
-    }
+  Future<void> handleGoogleLogin(UserViewModel viewModel) async {
+    await handleSocialLogin(SocialLoginType.google, viewModel);
   }
 
   validation(String userId, String password) {

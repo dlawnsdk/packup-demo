@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
 import 'package:mob/Common/router.dart';
 import 'package:provider/provider.dart';
 
@@ -11,10 +12,23 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  
+  // 환경 변수 파일 로드
   await dotenv.load();
 
+  // 초기 테마 세팅
   String defaultTheme = await getDefaultTheme();
   PackUp.themeNotifier.value = defaultTheme == "light" ? ThemeMode.light : ThemeMode.dark;
+
+  // 카카오 로그인 초기화
+  String KAKAO_NATIVE_APP_KEY = dotenv.env['KAKAO_NATIVE_APP_KEY']!;
+  String JAVASCRIPT_APP_KEY = dotenv.env['JAVASCRIPT_APP_KEY']!;
+
+  KakaoSdk.init(
+    nativeAppKey: KAKAO_NATIVE_APP_KEY,
+    javaScriptAppKey: JAVASCRIPT_APP_KEY,
+  );
+
   // if(loginFlag == true) {
   //   PackUp.initialRoute = '/index';
   // }
