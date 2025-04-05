@@ -39,9 +39,9 @@ class _LoginState extends State<Login> {
       ),
       body: Consumer<UserViewModel>(
         builder: (context, viewModel, child) {
-          // if (viewModel.isLoading) {
-          //   return const Center(child: CircularProgressIndicator());
-          // }
+          if (viewModel.isLoading) {
+            return const Center(child: CircularProgressIndicator());
+          }
           return Padding(
             padding: EdgeInsets.only(
               top:  MediaQuery.of(context).size.height * 0.05,
