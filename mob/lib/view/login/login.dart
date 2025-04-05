@@ -4,6 +4,8 @@ import 'package:mob/view/login/login_view_model.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import 'package:mob/widget/custom_dialog.dart';
+
 import 'package:mob/const/color.dart';
 import 'package:mob/common/util.dart';
 
@@ -37,9 +39,9 @@ class _LoginState extends State<Login> {
       ),
       body: Consumer<UserViewModel>(
         builder: (context, viewModel, child) {
-          if (viewModel.isLoading) {
-            return const Center(child: CircularProgressIndicator());
-          }
+          // if (viewModel.isLoading) {
+          //   return const Center(child: CircularProgressIndicator());
+          // }
           return Padding(
             padding: EdgeInsets.only(
               top:  MediaQuery.of(context).size.height * 0.05,
@@ -139,7 +141,21 @@ class _LoginState extends State<Login> {
 
   Future<void> handleSocialLogin(SocialLoginType type, UserViewModel viewModel) async {
     await viewModel.checkLogin(type);
+
+    if (!context.mounted) return;
+
+    if (viewModel.accessToken == '' && viewModel.isLoading == false) {
+      showDialog(
+        context: context,
+        builder: (context) => const CustomDialog(
+          type: DialogType.modal,
+          message: '로그인에 실패하였습니다.',
+        ),
+      );
+    }
   }
+
+
 
   Future<void> handleKakaoLogin(UserViewModel viewModel) async {
     await handleSocialLogin(SocialLoginType.kakao, viewModel);

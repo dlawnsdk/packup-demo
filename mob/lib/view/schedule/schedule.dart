@@ -38,7 +38,7 @@ class _ScheduleState extends State<Schedule> {
       ),
       body: SafeArea(
         child: ListView(
-          children: [
+          children: const [
             Calendar()
           ]
         ),

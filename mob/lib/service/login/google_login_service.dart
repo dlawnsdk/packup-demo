@@ -7,21 +7,14 @@ class GoogleLogin implements SocialLogin {
     scopes: ['email'],
   );
 
-  late final GoogleSignInAccount? googleUser;
+  GoogleSignInAccount? googleUser;
 
   @override
-  Future<bool> login()  async {
+  Future<bool> login() async {
     try {
-
       googleUser = await _googleSignIn.signIn();
-
-      if(googleUser == null) {
-        return false;
-      }
-
-      return true;
-    } catch(error) {
-
+      return googleUser != null;
+    } catch (error) {
       return false;
     }
   }
@@ -37,8 +30,9 @@ class GoogleLogin implements SocialLogin {
   }
 
   @override
-  Future<String?> getAccessToken()  async{
-    GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
-    return googleAuth?.accessToken;
+  Future<String?> getAccessToken() async {
+    if (googleUser == null) return '';
+    final googleAuth = await googleUser!.authentication;
+    return googleAuth.accessToken;
   }
 }
