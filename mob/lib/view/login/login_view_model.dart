@@ -3,7 +3,7 @@ import 'package:mob/Common/util.dart';
 import 'package:mob/model/user_model.dart';
 import 'package:mob/model/result_model.dart';
 import 'package:mob/service/login/login_service.dart';
-import 'package:mob/component/social_login_btn.dart';
+import 'package:mob/widget/social_login_btn.dart';
 import 'package:mob/service/login/google_login_service.dart';
 import 'package:mob/service/login/kakao_login_service.dart';
 

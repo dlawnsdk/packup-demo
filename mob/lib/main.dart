@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 
 import 'package:mob/Common/theme.dart';
 
-import 'package:mob/screen/login/login_view_model.dart';
+import 'package:mob/view/login/login_view_model.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {

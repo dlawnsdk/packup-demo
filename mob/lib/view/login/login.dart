@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_signin_button/button_list.dart';
-import 'package:flutter_signin_button/button_view.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:mob/screen/login/login_view_model.dart';
-import 'package:mob/service/login/google_login_service.dart';
+import 'package:mob/view/login/login_view_model.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:mob/const/color.dart';
 import 'package:mob/common/util.dart';
 
-import '../../component/social_login_btn.dart';
-import '../../service/login/kakao_login_service.dart';
+import 'package:mob/widget/social_login_btn.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});

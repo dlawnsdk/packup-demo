@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mob/Const/color.dart';
 
-import 'package:mob/screen/home/home.dart';
-import 'package:mob/screen/profile/profile.dart';
-import 'package:mob/screen/schedule/schedule.dart';
+import 'package:mob/view/home/home.dart';
+import 'package:mob/view/profile/profile.dart';
+import 'package:mob/view/schedule/schedule.dart';
 
 class Index extends StatefulWidget {
   final int? index;

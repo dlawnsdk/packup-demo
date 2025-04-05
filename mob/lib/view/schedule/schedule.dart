@@ -4,8 +4,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mob/const/color.dart';
 import 'package:mob/common/util.dart';
 
-import 'package:mob/component/calendar.dart';
-import 'package:mob/screen/schedule/schedule_view_model.dart';
+import 'package:mob/widget/calendar.dart';
+import 'package:mob/view/schedule/schedule_view_model.dart';
 import 'package:provider/provider.dart';
 
 class Schedule extends StatefulWidget {
