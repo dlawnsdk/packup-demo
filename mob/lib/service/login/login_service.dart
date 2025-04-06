@@ -1,5 +1,5 @@
 
-import 'package:mob/model/result_model.dart';
+import 'package:mob/model/common/result_model.dart';
 import 'package:mob/common/api.dart';
 
 class LoginService {

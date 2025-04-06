@@ -4,7 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mob/const/color.dart';
 import 'package:mob/common/util.dart';
 
-import 'package:mob/widget/calendar.dart';
+import 'package:mob/widget/schedule/calendar.dart';
 import 'package:mob/view/schedule/schedule_view_model.dart';
 import 'package:provider/provider.dart';
 

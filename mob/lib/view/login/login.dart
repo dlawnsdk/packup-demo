@@ -4,12 +4,12 @@ import 'package:mob/view/login/login_view_model.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import 'package:mob/widget/custom_dialog.dart';
+import 'package:mob/widget/common/custom_dialog.dart';
 
 import 'package:mob/const/color.dart';
 import 'package:mob/common/util.dart';
 
-import 'package:mob/widget/social_login_btn.dart';
+import 'package:mob/widget/login/social_login_btn.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -39,9 +39,9 @@ class _LoginState extends State<Login> {
       ),
       body: Consumer<UserViewModel>(
         builder: (context, viewModel, child) {
-          if (viewModel.isLoading) {
-            return const Center(child: CircularProgressIndicator());
-          }
+          // if (viewModel.isLoading) {
+          //   return const Center(child: CircularProgressIndicator());
+          // }
           return Padding(
             padding: EdgeInsets.only(
               top:  MediaQuery.of(context).size.height * 0.05,

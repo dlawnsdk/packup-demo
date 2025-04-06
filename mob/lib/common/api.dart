@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
-import 'package:mob/model/result_model.dart';
+import 'package:mob/model/common/result_model.dart';
 
 String httpPrefix = dotenv.env['HTTP_URL']!;
 
