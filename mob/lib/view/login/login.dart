@@ -95,20 +95,20 @@ class _LoginState extends State<Login> {
                 SizedBox(height: MediaQuery.of(context).size.width * 0.02),
                 // SizedBox(height: MediaQuery.of(context).size.width * 0.02),
                 // 회원가입 버튼
-                // ElevatedButton(
-                //   onPressed: () {
-                //     context.go('/join');
-                //   },
-                //   style: ButtonStyle(backgroundColor: MaterialStateProperty.all(PRIMARY_COLOR)),
-                //   child: SizedBox(
-                //     width: MediaQuery.of(context).size.width * 0.5,
-                //     child: Text(
-                //       AppLocalizations.of(context)!.join,
-                //       textAlign: TextAlign.center,
-                //       style: TextStyle(color: TEXT_COLOR_W),
-                //     ),
-                //   ),
-                // ),
+                ElevatedButton(
+                  onPressed: () {
+                    context.go('/index');
+                  },
+                  style: ButtonStyle(backgroundColor: MaterialStateProperty.all(PRIMARY_COLOR)),
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: Text(
+                      '인덱스로 바로가기',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: TEXT_COLOR_W),
+                    ),
+                  ),
+                ),
               ],
             ),
           );

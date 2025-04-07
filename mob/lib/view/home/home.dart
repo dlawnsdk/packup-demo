@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:mob/const/color.dart';
 
+import 'package:mob/widget/payment/toss/toss_payment/toss_payment.dart';
+
+import 'package:mob/widget/payment/toss/toss_widget/toss_payment2.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -12,15 +15,38 @@ class Home extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: PRIMARY_COLOR,
-        title: Text('Home', style: TextStyle(color: TEXT_COLOR_W),),
+        title: Text('Home', style: TextStyle(color: TEXT_COLOR_W)),
       ),
-      body: Container(
-        decoration: BoxDecoration(
-          border: Border.all(
-            width: 1.0,
-            color: PRIMARY_COLOR,
-          ),
-          borderRadius: BorderRadius.circular(8.0),
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                    const TossPayment(title: 'Tosspayments1'),
+                  ),
+                );
+              },
+              child: const Text('결제창'),
+            ),
+            const SizedBox(height: 20), // 버튼 사이 간격
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                    const TossPayment2(),
+                  ),
+                );
+              },
+              child: const Text('결제위젯'),
+            ),
+          ],
         ),
       ),
     );

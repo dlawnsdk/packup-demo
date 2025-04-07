@@ -45,6 +45,9 @@ dependencies:
   google_sign_in: ^6.2.0
   flutter_signin_button: ^2.0.0
   kakao_flutter_sdk_user: ^1.9.1+2
+  tosspayments_widget_sdk_flutter: ^2.1.1
+  get: ^4.6.0
+  fluttertoast: ^8.2.2
 
 dev_dependencies:
   flutter_test:
