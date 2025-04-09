@@ -31,9 +31,9 @@ class Home extends StatelessWidget {
                   ),
                 );
               },
-              child: const Text('결제창'),
+              child: const Text('깃'),
             ),
-            const SizedBox(height: 20), // 버튼 사이 간격
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -44,7 +44,7 @@ class Home extends StatelessWidget {
                   ),
                 );
               },
-              child: const Text('결제위젯'),
+              child: const Text('예시코드'),
             ),
           ],
         ),
