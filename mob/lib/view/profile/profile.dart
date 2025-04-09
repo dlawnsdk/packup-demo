@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:mob/const/color.dart';
-import 'package:mob/Common/theme.dart';
+import 'package:mob/theme/theme.dart';
 
 class Profile extends StatefulWidget {
 

@@ -5,7 +5,7 @@ import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
 import 'package:mob/Common/router.dart';
 import 'package:provider/provider.dart';
 
-import 'package:mob/Common/theme.dart';
+import 'package:mob/theme/theme.dart';
 
 import 'package:mob/view/login/login_view_model.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';

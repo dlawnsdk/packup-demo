@@ -48,6 +48,7 @@ dependencies:
   tosspayments_widget_sdk_flutter: ^2.1.1
   get: ^4.6.0
   fluttertoast: ^8.2.2
+  dio: ^5.8.0+1
 
 dev_dependencies:
   flutter_test:
