@@ -1,6 +1,6 @@
 
 import 'package:mob/model/common/result_model.dart';
-import 'package:mob/common/api.dart';
+import 'package:mob/http/dio_service.dart';
 
 class LoginService {
 
@@ -17,16 +17,12 @@ class LoginService {
   Future<ResultModel> checkLogin(loginModel) async {
     String url = '/user/login_check';
 
-    ResultModel resultModel = await postRequest(url, loginModel);
-
-    return resultModel;
+    return await DioService().postRequest(url, loginModel);
   }
 
   Future<ResultModel> getUserInfo(Map<String, dynamic> data) async {
     String url = '/user/get_user_info';
 
-    ResultModel resultModel = await getRequest(url, data);
-
-    return resultModel;
+    return await DioService().getRequest(url, data);
   }
 }

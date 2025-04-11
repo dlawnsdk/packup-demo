@@ -52,7 +52,6 @@ DateTime getToday() {
 }
 
 /// ################### LOGGER ################### ///
-
 logger(String message, [String type = "TRACE"]) {
   final logger = Logger();
 
